@@ -17,11 +17,16 @@ If you are not Anstro Pleuton, which you probably are, here is a quick and rough
 
  1. Setup:
     - Clone this repository.
-    ```
+    ```bash
     git clone https://github.com/anstropleuton/confer_tester
     cd confer_tester
     ```
- 2. Build the library:
+ 2. Dependencies
+    - Close dependencies
+    ```bash
+    git submodule update --init --recursive
+    ```
+ 3. Build the library:
     - Make build folder:
     ```bash
     mkdir build
@@ -32,15 +37,20 @@ If you are not Anstro Pleuton, which you probably are, here is a quick and rough
     cmake ..
     cmake --build .
     ```
- 3. Set up path. You can use CMake and `add_library` to this directory to automatically set up path for compilation, or add include directory as `include` and lib directory to the build folder.
- 4. Include the library to include all functionality:
-    ```cpp
-    #include "alce_library.hpp"
+ 4. Install (optional, Unix/-like only)
     ```
- 5. Go through [documentation](https://anstropleuton.github.io/alce_library) (or [header files](include/alce_library.hpp) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
+    sudo cmake --install .
+    ```
+    Note: To uninstall, use `sudo cmake --build . --target uninstall`
+ 5. Set up path. You can use CMake and `add_library` to this directory to automatically set up path for compilation, or add include directory as `include` and lib directory to the build folder.
+ 6. Include the library to include all functionality:
+    ```cpp
+    #include "confer_tester.hpp"
+    ```
+ 7. Go through [documentation](https://anstropleuton.github.io/confer_tester) (or [header files](include/confer_tester.hpp) to get a grasp on what you can do using my library. You can check out [examples source files](examples/) for more usage information.
 
 # Documentations
-Refer to the [documentation](https://anstropleuton.github.io/alce_library) (or [header files](include/alce_library.hpp) to get a grasp on what you can do using my library.
+Refer to the [documentation](https://anstropleuton.github.io/confer_tester) (or [header files](include/confer_tester.hpp) to get a grasp on what you can do using my library.
 
 # Changelog
 Refer to the [Changelog](Changelog.md) for info about changes in each version.
