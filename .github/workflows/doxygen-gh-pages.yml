@@ -1,4 +1,4 @@
-name: Doxygen GitHub Pages Deploy Action
+name: Generate Docs
 
 on:
   push:
@@ -13,22 +13,20 @@ jobs:
       contents: write
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Set up CMake
-        uses: cmake/setup-cmake@v2
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: sudo apt-get install doxygen
+        run: |
+          sudo apt update
+          sudo apt install doxygen cmake
 
       - name: Build Documentation
         run: |
           cmake -S . -B build
           cmake --build build --target doc
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          folder: build/docs
-          deploy_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/docs/html
