@@ -7,7 +7,7 @@ PROJECT_LOGO           = favicon.ico
 PROJECT_ICON           = favicon.ico
 OUTPUT_DIRECTORY       = @DOXYGEN_CONFER_TESTER_OUTPUT_DIR@
 INPUT                  = ../include ../Changelog.md ../Guidelines.md ../License.md ../Readme.md
-EXTRA_FILES            = ../background.png ../favicon.ico
+HTML_EXTRA_FILES       = ../background.png ../favicon.ico
 USE_MDFILE_AS_MAINPAGE = ../Readme.md
 
 HTML_HEADER            = ../doxygen-custom-header.html
