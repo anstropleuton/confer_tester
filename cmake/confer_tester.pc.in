@@ -1,0 +1,12 @@
+# confer_tester.pc.in
+
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
+
+Name: confer_tester
+Description: Confer Tester is a testing framework for Anstro Pleuton's libraries and programs.
+Version: @PROJECT_VERSION@
+Libs: -L${libdir} -lconfer_tester
+Cflags: -I${includedir}

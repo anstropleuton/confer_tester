@@ -1,0 +1,34 @@
+name: Doxygen GitHub Pages Deploy Action
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up CMake
+        uses: actions/setup-cmake@v2
+
+      - name: Install Dependencies
+        run: sudo apt-get install doxygen
+
+      - name: Build Documentation
+        run: |
+          cmake -S . -B build
+          cmake --build build --target doc
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          folder: build/docs
+          deploy_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
