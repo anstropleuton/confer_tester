@@ -23,11 +23,6 @@ configure_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/confer_tester.pc.in"
     "${CMAKE_CURRENT_BINARY_DIR}/confer_tester.pc"
 )
-configure_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
-    @ONLY
-)
 
 set(CONFER_TESTER_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/confer_tester.cpp"
@@ -83,6 +78,23 @@ install(
 )
 
 find_package(Doxygen REQUIRED)
+
+include(FetchContent)
+FetchContent_Declare(
+    doxygen-awesome-css
+    URL https://github.com/jothepro/doxygen-awesome-css/archive/refs/heads/main.zip
+)
+FetchContent_MakeAvailable(doxygen-awesome-css)
+
+# Save the location the files were cloned into
+# This allows us to get the path to doxygen-awesome.css
+FetchContent_GetProperties(doxygen-awesome-css SOURCE_DIR AWESOME_CSS_DIR)
+
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
+    @ONLY
+)
 
 add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/doc

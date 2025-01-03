@@ -1,18 +1,23 @@
-# Doxyfile 1.11.0
+# Doxyfile 1.13.1
 
 PROJECT_NAME           = "Confer Tester"
 PROJECT_NUMBER         = @DOXYGEN_CONFER_TESTER_PROJECT_VERSION@
 PROJECT_BRIEF          = "Confer Tester is a testing framework for Anstro Pleuton's libraries and programs."
 PROJECT_LOGO           = favicon.ico
 PROJECT_ICON           = favicon.ico
+
 OUTPUT_DIRECTORY       = @DOXYGEN_CONFER_TESTER_OUTPUT_DIR@
 INPUT                  = ../include ../Changelog.md ../Guidelines.md ../License.md ../Readme.md
-HTML_EXTRA_FILES       = ../background.png ../favicon.ico
 USE_MDFILE_AS_MAINPAGE = ../Readme.md
 
 HTML_HEADER            = ../doxygen-custom-header.html
 HTML_FOOTER            = ../doxygen-custom-footer.html
-HTML_EXTRA_STYLESHEET  = ../doxygen-awesome.css
+HTML_EXTRA_STYLESHEET  = ../background.css @AWESOME_CSS_DIR@/doxygen-awesome.css
+HTML_EXTRA_FILES       = ../background.png ../favicon.ico
+
+GENERATE_TREEVIEW      = YES
+DISABLE_INDEX          = NO
+FULL_SIDEBAR           = NO
 HTML_COLORSTYLE        = AUTO_DARK
 HTML_DYNAMIC_SECTIONS  = YES
 GENERATE_LATEX         = NO
