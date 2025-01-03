@@ -22,19 +22,19 @@
 $darkmode
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<meta name="twitter:image:src" content="https://anstropleuton.github.io/alce_library/background.png">
+<meta name="twitter:image:src" content="https://anstropleuton.github.io/confer_tester/background.png">
 <meta name="twitter:site" content="@anstropleuton">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Alce Library">
-<meta name="twitter:description" content="Alce Library is a collection of utils for Anstro Pleuton's programs.">
-<meta property="og:title" content="Alce Library">
-<meta property="og:description" content="Alce Library is a collection of utils for Anstro Pleuton's programs.">
-<meta property="og:image" content="https://anstropleuton.github.io/alce_library/background.png">
-<meta property="og:image:alt" content="Elarun Background for Alce Library">
+<meta name="twitter:title" content="Confer Tester">
+<meta name="twitter:description" content="Confer Tester is a testing framework for Anstro Pleuton's libraries and programs.">
+<meta property="og:title" content="Confer Tester">
+<meta property="og:description" content="Confer Tester is a testing framework for Anstro Pleuton's libraries and programs.">
+<meta property="og:image" content="https://anstropleuton.github.io/confer_tester/background.png">
+<meta property="og:image:alt" content="Elarun Background for Confer Tester">
 <meta property="og:image:width" content="2560">
 <meta property="og:image:height" content="1600">
-<meta property="og:url" content="https://anstropleuton.github.io/alce_library">
-<meta property="og:site_name" content="Alce Library">
+<meta property="og:url" content="https://anstropleuton.github.io/confer_tester">
+<meta property="og:site_name" content="Confer Tester">
 <meta property="og:type" content="object">
 </head>
 <body>
@@ -128,21 +128,26 @@ Usage</h1>
 <p>If you are not Anstro Pleuton, which you probably are, here is a quick and rough guide to use my library:</p>
 <ol type="1">
 <li>Setup:<ul>
-<li>Clone this repository. ``` git clone <a href="https://github.com/anstropleuton/confer_tester">https://github.com/anstropleuton/confer_tester</a> cd confer_tester ```</li>
+<li>Clone this repository. ```bash git clone <a href="https://github.com/anstropleuton/confer_tester">https://github.com/anstropleuton/confer_tester</a> cd confer_tester ```</li>
+</ul>
+</li>
+<li>Dependencies<ul>
+<li>Close dependencies ```bash git submodule update &ndash;init &ndash;recursive ```</li>
 </ul>
 </li>
 <li>Build the library:<ul>
 <li>Make build folder: ```bash mkdir build cd build ```</li>
-<li>Build the project: ```bash cmake .. cmake &ndash;build . ``<code></code></li>
+<li>Build the project: ```bash cmake .. cmake &ndash;build . ```</li>
 </ul>
 </li>
+<li>Install (optional, Unix/-like only) ``` sudo cmake &ndash;install . ``<code> Note: To uninstall, use</code>sudo cmake &ndash;build . &ndash;target uninstall<code></code></li>
 <li><code>Set up path. You can use CMake and</code>add_library<code>to this directory to automatically set up path for compilation, or add include directory as</code>include` and lib directory to the build folder.</li>
-<li>Include the library to include all functionality: ```cpp #include "alce_library.hpp" ```</li>
-<li>Go through <a href="https://anstropleuton.github.io/alce_library">documentation</a> (or <a href="include/alce_library.hpp">header files</a> to get a grasp on what you can do using my library. You can check out <a href="examples/">examples source files</a> for more usage information.</li>
+<li>Include the library to include all functionality: ```cpp #include "confer_tester.hpp" ```</li>
+<li>Go through <a href="https://anstropleuton.github.io/confer_tester">documentation</a> (or <a href="include/confer_tester.hpp">header files</a> to get a grasp on what you can do using my library. You can check out <a href="examples/">examples source files</a> for more usage information.</li>
 </ol>
 <h1><a class="anchor" id="autotoc_md44"></a>
 Documentations</h1>
-<p>Refer to the <a href="https://anstropleuton.github.io/alce_library">documentation</a> (or <a href="include/alce_library.hpp">header files</a> to get a grasp on what you can do using my library.</p>
+<p>Refer to the <a href="https://anstropleuton.github.io/confer_tester">documentation</a> (or <a href="include/confer_tester.hpp">header files</a> to get a grasp on what you can do using my library.</p>
 <h1><a class="anchor" id="autotoc_md45"></a>
 Changelog</h1>
 <p>Refer to the <a class="el" href="md__home_runner_work_confer_tester_confer_tester_Changelog.html">Changelog</a> for info about changes in each version.</p>
