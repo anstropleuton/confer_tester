@@ -60,8 +60,8 @@ html {
      * font-family: the normal font for text, headlines, menus
      * font-family-monospace: used for preformatted text in memtitle, code, fragments
      */
-    --font-family: Inter,Cantarell,Droid Sans,Segoe UI,Roboto,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Helvetica Neue,sans-serif;
-    --font-family-monospace: FiraCode Nerd Font,ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+    --font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    --font-family-monospace: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
 
     /* font sizes */
     --page-font-size: 15.6px;
@@ -73,7 +73,7 @@ html {
     /* content text properties. These only affect the page content, not the navigation or any other ui elements */
     --content-line-height: 27px;
     /* The content is centered and constraint in it's width. To make the content fill the whole page, set the variable to auto.*/
-    --content-maxwidth: auto;
+    --content-maxwidth: 1050px;
     --table-line-height: 24px;
     --toc-sticky-top: var(--spacing-medium);
     --toc-width: 200px;
@@ -302,22 +302,6 @@ html.dark-mode {
     --fragment-linenumber-color: #cccccc;
     --fragment-linenumber-background: #35393c;
     --fragment-linenumber-border: #1f1f1f;
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.05;
-    z-index: 9999;
-    pointer-events: none;
 }
 
 body {
@@ -821,6 +805,8 @@ html.dark-mode iframe#MSearchResults {
 #nav-tree .item {
     height: var(--tree-item-height);
     line-height: var(--tree-item-height);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #nav-tree .item > a:focus {
@@ -832,7 +818,6 @@ html.dark-mode iframe#MSearchResults {
     right: 12px;
     top: auto !important;
     user-select: none;
-    display: none;
 }
 
 #nav-tree .selected {
@@ -840,6 +825,8 @@ html.dark-mode iframe#MSearchResults {
     background-image: none;
     background-color: transparent;
     position: relative;
+    color: var(--primary-color) !important;
+    font-weight: 500;
 }
 
 #nav-tree .selected::after {
@@ -874,7 +861,7 @@ html.dark-mode iframe#MSearchResults {
     font-size: 45%;
     vertical-align: middle;
     margin-right: 2px;
-    /* font-family: serif; */
+    font-family: serif;
     height: auto;
     text-align: right;
 }
@@ -961,10 +948,6 @@ span.mlabel {
     padding: 4px 9px;
     border-radius: 12px;
     margin-right: var(--spacing-medium);
-    color: var(--page-foreground-color);
-    font-size: var(--memname-font-size);
-    font-family: var(--font-family-monospace);
-    font-weight: bold;
 }
 
 span.mlabel:last-of-type {
@@ -1046,7 +1029,7 @@ blockquote {
 
 blockquote::before, blockquote::after {
     font-weight: bold;
-    /* font-family: serif; */
+    font-family: serif;
     font-size: 360%;
     opacity: .15;
     position: absolute;
@@ -1770,7 +1753,7 @@ table.fieldtable th {
     color: var(--tablehead-foreground);
 }
 
-table.fieldtable td.fieldtype, .fieldtable td.fieldname, .fieldtable td.fielddoc, .fieldtable th {
+table.fieldtable td.fieldtype, .fieldtable td.fieldname, .fieldtable td.fieldinit, .fieldtable td.fielddoc, .fieldtable th {
     border-bottom: 1px solid var(--separator-color);
     border-right: 1px solid var(--separator-color);
 }
